@@ -17,8 +17,9 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <ThingList  things={this.state.things} />
         <AddThingButton />
+        <ThingList  things={this.state.things} />
+        
       </div>
     );
   }
