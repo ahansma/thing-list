@@ -5,6 +5,7 @@ import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
 
+
 class App extends Component {
   state = {
     things: {},
