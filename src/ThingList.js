@@ -1,18 +1,28 @@
-import React from 'react';
+import React from 'react'
 
 import './ThingList.css'
-import Thing from './Thing.js'
+import Thing from './Thing'
 
 const ThingList = (props) => {
-    return (
-        <ul className="ThingList">
-            {
-                Object
-                    .keys(props.things)
-                    .map(thingId => <Thing thing={props.things[thingId]} key={thingId} />)
-            }
-        </ul>
-    )
+  const sortThings = (a, b) => {
+    return b.match(/\d+/)[0] - a.match(/\d+/)[0]
+  }
+
+  return (
+    <ul className="ThingList">
+      {
+        Object
+          .keys(props.things)
+          .sort(sortThings)
+          .map(thingId => <Thing
+                            thing={props.things[thingId]}
+                            key={thingId}
+                            saveThing={props.saveThing}
+                          />)
+
+      }
+    </ul>
+  )
 }
 
 export default ThingList
