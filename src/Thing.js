@@ -3,7 +3,7 @@ import ContentEditable from 'react-contenteditable'
 
 import './Thing.css'
 
-const Thing = ({ thing, saveThing }) => {
+const Thing = ({ thing, saveThing, removeThing }) => {
   const updateName = (ev) => {
     thing.name = ev.target.value
     saveThing(thing)
@@ -19,7 +19,10 @@ const Thing = ({ thing, saveThing }) => {
           onChange={updateName}
         />
         <span className="actions">
-          <button className="remove">
+          <button 
+            className="remove"
+            onClick={() => removeThing(thing)}
+          >
             <i className="fa fa-trash-o"></i>
           </button>
         </span>
