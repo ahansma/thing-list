@@ -4,7 +4,11 @@ import './AddThingButton.css'
 
 const AddThingButton = ({ addThing }) => {
     
-    return <button className="AddThingButton" onClick={addThing}>Add Thing</button>
+    return <button 
+            className="AddThingButton" 
+            onClick={addThing}>
+            Add Thing
+          </button>
     
 }
 
