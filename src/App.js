@@ -6,7 +6,7 @@ import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
 import SignOut from './SignOut'
 import SignIn from './SignIn'
-import base from './base'
+import base, { auth } from './base'
 
 class App extends Component {
   state = {
@@ -61,6 +61,12 @@ class App extends Component {
     return this.state.uid
   }
 
+  signOut = () => {
+    auth
+      .signOut()
+      .then(() => this.setState({ uid: null }))
+  }
+
   renderMain = () => {
      const actions = {
       saveThing: this.saveThing,
@@ -69,7 +75,7 @@ class App extends Component {
 
     return (
       <div>
-        <SignOut />
+        <SignOut signOut={this.signOut}/>
           <AddThingButton addThing={this.addThing} />
           <ThingList
             things={this.state.things}
@@ -83,10 +89,7 @@ class App extends Component {
      return (
         <div className="App">
           <Header />
-
           { this.signedIn() ? this.renderMain() : <SignIn authHandler = { this.authHandler }/> }
-
-          
         </div>
           
       );
