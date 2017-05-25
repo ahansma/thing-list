@@ -4,6 +4,8 @@ import './App.css';
 import Header from './Header'
 import ThingList from './ThingList'
 import AddThingButton from './AddThingButton'
+import SignOut from './SignOut'
+import SignIn from './SignIn'
 import base from './base'
 
 class App extends Component {
@@ -14,8 +16,7 @@ class App extends Component {
         context: this,
         state: 'things'
       }
-      )
-
+    )
   }
 
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
       id: `thing-${Date.now()}`,
       name: '',
       completed: false,
+      dueOn: null,
     }
   }
 
@@ -56,16 +58,18 @@ class App extends Component {
       removeThing: this.removeThing
     }
 
-    return (
-      <div className="App">
-        <Header />
-        <AddThingButton addThing={this.addThing} />
-        <ThingList
-          things={this.state.things}
-          {...actions}
-        />
-      </div>
-    );
+     return (
+        <div className="App">
+          <Header />
+          <SignIn />
+          <SignOut />
+          <AddThingButton addThing={this.addThing} />
+          <ThingList
+            things={this.state.things}
+            {...actions}
+          />
+        </div>
+      );
   }
 }
 
