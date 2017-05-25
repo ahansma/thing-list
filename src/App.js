@@ -26,6 +26,7 @@ class App extends Component {
     return {
       id: `thing-${Date.now()}`,
       name: '',
+      completed: false,
     }
   }
 
@@ -45,7 +46,7 @@ class App extends Component {
   removeThing = (thing) => {
     const things = {...this.state.things}
     things[thing.id] = null
-    //delete things[thing.id] 
+    //delete things[thing.id] ==> to use without database 
     this.setState({ things })
   }
 
