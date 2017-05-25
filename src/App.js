@@ -33,7 +33,7 @@ class App extends Component {
 
   syncThings = () => {
     base.syncState(
-      'things', 
+      `${this.state.uid}/things`,
       {
         context: this,
         state: 'things'
