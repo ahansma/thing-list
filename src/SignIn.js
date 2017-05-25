@@ -8,7 +8,6 @@ const SignIn = ( { authHandler }) => {
     const authenticate = (provider) => {
         auth
             .signInWithPopup(provider)
-            .then(authHandler)
     }
 
     return(
